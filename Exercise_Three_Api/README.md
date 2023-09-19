@@ -2,7 +2,7 @@
 
 
 
-# prueba parctica Desarrollo de apis
+# prueba practica Desarrollo de apis
 
 Descripción breve del proyecto.
 
