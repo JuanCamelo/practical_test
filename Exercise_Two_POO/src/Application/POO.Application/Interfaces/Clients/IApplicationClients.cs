@@ -1,11 +1,11 @@
 ﻿using POO.Application.DTOs.Request;
-using POO.Application.DTOs.Response;
+using POO.Infraestructure.Entities;
 
 namespace POO.Application.Interfaces.Clients
 {
     public interface IApplicationClients
     {
-        Task<dynamic> GetAsync();
+        Task<IEnumerable<Client>> GetAsync();
         Task<string> AddAsync(ModelAccountClient model);
     }
 }

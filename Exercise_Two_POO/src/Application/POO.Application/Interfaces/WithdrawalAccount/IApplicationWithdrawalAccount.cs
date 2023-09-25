@@ -1,10 +1,10 @@
 ﻿using POO.Application.DTOs.Request;
-using POO.Infraestructure.Entities;
+using POO.Application.DTOs.Response;
 
 namespace POO.Application.Interfaces.WithdrawalAccount
 {
     public interface IApplicationWithdrawalAccount
     {
-        Task<string> CreateWithdrawalAccount(ModelAccountWithdrawal model);
+        Task<IEnumerable<ViewAccountTransaction>> CreateWithdrawalAccount(ModelAccountWithdrawal model);
     }
 }

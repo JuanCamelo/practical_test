@@ -1,0 +1,137 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Description": "An AWS Serverless Application that uses the ASP.NET Core framework running in Amazon Lambda.",
+  "Parameters": {},
+  "Conditions": {},
+  "Resources": {
+    "FunctionClients": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "AWSLambdaPOO::AWSLambdaPOO.Function::FunctionHandlerClients",
+        "Runtime": "dotnet6",
+        "CodeUri": "../AWSLambdaPOO",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": null,
+        "Policies": [
+          "AWSLambda_FullAccess"
+        ],
+        "Events": {
+          "ProxyResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/clients",
+              "Method": "GET"
+            }
+          },
+          "RootResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/clients",
+              "Method": "POST"
+            }
+          }
+        }
+      }
+    },
+    "FunctionHistoryMovements": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "AWSLambdaPOO::AWSLambdaPOO.Function::FunctionHandlerHistoryMovements",
+        "Runtime": "dotnet6",
+        "CodeUri": "../AWSLambdaPOO",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": null,
+        "Policies": [
+          "AWSLambda_FullAccess"
+        ],
+        "Events": {
+          "ProxyResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/historyMovements/{proxy+}",
+              "Method": "ANY"
+            }
+          },
+          "RootResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/historyMovements",
+              "Method": "POST"
+            }
+          }
+        }
+      }
+    },
+    "FunctionFunctionHandlerWithdrawalAccount": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "AWSLambdaPOO::AWSLambdaPOO.Function::FunctionHandlerWithdrawalAccount",
+        "Runtime": "dotnet6",
+        "CodeUri": "../AWSLambdaPOO",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": null,
+        "Policies": [
+          "AWSLambda_FullAccess"
+        ],
+        "Events": {
+          "ProxyResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/withdrawalAccount/{proxy+}",
+              "Method": "ANY"
+            }
+          },
+          "RootResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/withdrawalAccount",
+              "Method": "POST"
+            }
+          }
+        }
+      }
+    },
+    "FunctionTransferAccount": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "AWSLambdaPOO::AWSLambdaPOO.Function::FunctionHandlerTransferAccount",
+        "Runtime": "dotnet6",
+        "CodeUri": "../AWSLambdaPOO",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": null,
+        "Policies": [
+          "AWSLambda_FullAccess"
+        ],
+        "Events": {
+          "ProxyResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/transferAccount/{proxy+}",
+              "Method": "ANY"
+            }
+          },
+          "RootResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/transferAccount",
+              "Method": "POST"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "ApiURL": {
+      "Description": "API endpoint URL for Prod environment",
+      "Value": {
+        "Fn::Sub": "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+      }
+    }
+  }
+}

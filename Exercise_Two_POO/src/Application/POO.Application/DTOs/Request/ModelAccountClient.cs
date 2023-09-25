@@ -1,12 +1,16 @@
-﻿using POO.Application.Helpers;
+﻿using System.Text.Json.Serialization;
 
 namespace POO.Application.DTOs.Request
 {
     public class ModelAccountClient
     {
-        public string Client { get; set; }
-        public string Document { get; set; }
-        public string TypeAccount { get; set; }
+        [JsonPropertyName("client")]
+        public string Client { get; set; } = string.Empty;
+        [JsonPropertyName("document")]
+        public int Document { get; set; }
+        [JsonPropertyName("typeAccount")]
+        public string TypeAccount { get; set; }= string.Empty;
+        [JsonPropertyName("balance")]
         public double Balance { get; set; }
     }
 }

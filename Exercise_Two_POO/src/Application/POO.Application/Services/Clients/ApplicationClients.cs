@@ -32,6 +32,13 @@ namespace POO.Application.Services.Clients
             try
             {
                 Client objClient = _mapper.Map<Client>(model);
+                string[] clientSplit = model.Client.Split(' ');
+                objClient.Name = clientSplit[0];
+                if(clientSplit.Length > 1)
+                {
+                    objClient.LastName = clientSplit[1];
+                }
+
                 await _repositoryClient.AddAsync(objClient);
 
                 ModelAccount objAccount = _mapper.Map<ModelAccount>(model);
@@ -48,7 +55,7 @@ namespace POO.Application.Services.Clients
             }
         }
 
-        public async Task<dynamic> GetAsync()
+        public async Task<IEnumerable<Client>> GetAsync()
         {
             try
             {
@@ -61,5 +68,6 @@ namespace POO.Application.Services.Clients
             }
             
         }
+
     }
 }

@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using POO.Application.DTOs.Request;
 using POO.Application.Interfaces.Account;
 using POO.Domain.Interfaces;
 using POO.Infraestructure.Entities;
+
 
 namespace POO.Application.Services.Account
 {
@@ -25,6 +27,22 @@ namespace POO.Application.Services.Account
                 await _bankAccountRepository.AddAsync(objResult);
 
                 return await Task.FromResult(true);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<Guid> getAcountIdAsync(int documet)
+        {
+            try
+            {
+                BankAccount result =  (await _bankAccountRepository.GetAllAsync<BankAccount>(whereCondition: c => c.Client.DocumentNumber.Equals(documet),
+                                                                   includes: source => source.Include(c => c.Client))).FirstOrDefault();
+
+                return result.Id;
             }
             catch (Exception)
             {

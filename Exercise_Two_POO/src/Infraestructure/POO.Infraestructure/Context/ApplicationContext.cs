@@ -36,8 +36,7 @@ public partial class ApplicationContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_AccountTransfers_BankAccounts");
         });
-
-
+                
         modelBuilder.Entity<AccountWithdrawal>(entity =>
         {
             entity.Property(e => e.Id).ValueGeneratedNever();

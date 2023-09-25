@@ -1,9 +1,10 @@
 ﻿using POO.Application.DTOs.Request;
+using POO.Application.DTOs.Response;
 
 namespace POO.Application.Interfaces.TransferAccount
 {
     public interface IApplicationTransferAccount
     {
-        Task<string> CreateTransferAccount(ModelAccountTransfer model);
+        Task<IEnumerable<ViewAccountTransaction>> CreateTransferAccount(ModelAccountTransfer model);
     }
 }

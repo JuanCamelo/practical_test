@@ -10,11 +10,11 @@ namespace POO.Infraestructure.Extensions
 {
     public static class ServiceCollectionExtension
     {
-        public static IServiceCollection AddDbContextInfra(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddDbContextInfra(this IServiceCollection services)
         {
             _ = services ?? throw new ArgumentNullException(nameof(services));
 
-            var connectionString = "Server=DESKTOP-2QSG7JN;Database=Application;Trusted_Connection=True; TrustServerCertificate=True"; ;
+            var connectionString = "Server=database.clfyixnbaq8f.us-east-1.rds.amazonaws.com,1433;Database=Application;User=adminj;Password=Pruebas1; TrustServerCertificate=True";
 
             return services.AddDbContext<ApplicationContext>(options =>
                     options.UseSqlServer(connectionString));
