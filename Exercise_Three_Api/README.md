@@ -1,22 +1,42 @@
-# practical_test Exercise_Three
+Estructura de Carpetas de Proyecto
+==============================
 
+- **Application/**
+   - **Contract/**
+     - ICurrencyHistoryService.cs
+  - AppplicationtCurrenHistory.cs
+- **Domain/**
+  - **Contract/**
+    - IHistoryQueryStrategy.cs
+  - **Strategy/**
+    - ConvertHistoryQuery.cs
+    - LastYearHistoryQuery.cs
+    - TimeseriesHistoryQuery.cs
+- **DI/**
+  - DependenciInjecionProfile.cs
+- **GatewayCommon/**
+  - **Services/**
+     - BaseService.cs
+- **Helpers/**
+  - CreateReponse.cs
+- **Models/**
+  - CurrencyExchangeRateViewModel
+  - CurrencyHistoryViewModel.cs  
+- **Services/**
+  - CurrencyHistoryService.cs
+    
+- **FuntionsLambda.cs**
+- 
+# Solución Desplegada en AWS Lambda
 
+Este proyecto ha sido desplegado en AWS Lambda y está disponible para su acceso en línea. Puedes acceder a la solución a través de la siguiente URL:
 
-# prueba practica Desarrollo de apis
+- **URL de Acceso:** [https://1svxe8yzd4.execute-api.us-east-1.amazonaws.com/Prod](https://1svxe8yzd4.execute-api.us-east-1.amazonaws.com/Prod)
 
-Descripción breve del proyecto.
+# Manual de Usuario
 
-## Requisitos
+Para obtener instrucciones detalladas sobre cómo utilizar esta solución, consulta el **Manual de Usuario** incluido en este repositorio. con el nombre "UserManual.pdf".
 
-- .NET Core 6 SDK: Asegúrate de tener instalada la última versión de .NET Core 6 SDK en tu sistema. Puedes descargarlo desde [sitio oficial de .NET](https://dotnet.microsoft.com/download/dotnet/6.0).
-
-- Visual Studio 2022: Se recomienda utilizar Visual Studio 2022 como entorno de desarrollo para este proyecto. Puedes descargarlo desde [Visual Studio](https://visualstudio.microsoft.com/downloads/).
-
-## Configuración del Proyecto
-
-1. Clona este repositorio en tu máquina local usando Git:
-
-   ```bash
-   https://github.com/JuanCamelo/practical_test.git
+Esperamos que esta información sea útil para comprender la estructura del proyecto, acceder a la solución.
 
 
