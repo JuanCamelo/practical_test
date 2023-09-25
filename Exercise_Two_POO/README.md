@@ -24,3 +24,42 @@ Este proyecto sigue una arquitectura de Domain-Driven Design (DDD). La lógica d
 ## Base de Datos AWS RDS SQL Server
 
 Este proyecto utiliza una base de datos alojada en AWS RDS con SQL Server como motor de base de datos. Todos los datos de la aplicación se almacenan y gestionan en esta base de datos. Asegúrate de tener acceso a esta base de datos antes de ejecutar el proyecto.
+
+Estructura de Carpetas de Proyecto
+==============================
+
+## Estructura
+	Proyecto-backend-DDD/
+	├── src
+   │   ├── Application
+   │   │   ├── DTOs
+   │   │   │  ├── Request
+   │   │   │  ├── Response
+   │   │   ├── Helpers   
+   │   │   ├── Interfaces   
+   │   │   │   ├── Account
+   │   │   │   ├── Clients
+   │   │   │   ├── HistoryMovements 
+   │   │   │   ├── TransferAccount
+   │   │   │   ├── WithdrawalAccount
+   │   │   ├── Mappers 
+   │   │   ├── Services   
+   │   │   │   ├── Account
+   │   │   │   ├── Clients
+   │   │   │   ├── HistoryMovements 
+   │   │   │   ├── TransferAccount
+   │   │   │   ├── WithdrawalAccount
+   │   │   ├── DependenciInjeccionProfile
+   │   ├── Infraestructure
+   │   │   │   ├── Context
+   │   │   │   ├── Entities
+   │   │   │   ├── Extensions
+   │   │   │   ├── Interfaces
+   │   │   │   ├── Repositories
+   │   │   │   ├── UnitOfWork
+   │   ├── Domain
+   │   │   │   ├── Interfaces
+   │   │   │   ├── Models
+   │   │   │   ├── Services
+   ├── README.md
+## Componentes
